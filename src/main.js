@@ -1,5 +1,5 @@
 const { app, BrowserWindow, globalShortcut } = require('electron');
-
+const path = require('path');
 let win;
 
 function createWindow() {
@@ -22,8 +22,8 @@ function createWindow() {
   win.setIgnoreMouseEvents(true);
 
   win.setContentProtection(true);
-
-  win.loadFile('index.html');
+  console.log(__dirname)
+  win.loadFile(path.join(__dirname, '../index.html'));
 }
 
 app.whenReady().then(() => {
