@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div id="slide-count">Slide 1 de ...</div>
+    
+    <div id="script-text">Carregando roteiro...</div>
+
+    <div class="controls">
+        <button onclick="anterior()">Anterior</button>
+        <button onclick="proximo()">Próximo</button>
+    </div>
+
+    <script>
+        const slides = [
+            { 
+                id: 1, 
+                text: "Bom dia/Boa tarde a todos. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx." 
+            },
+            { 
+                id: 2, 
+                text: "Aqui vemos a agenda. xxxxxxxxxxxxxxxxxxxxxxxxxxxxx." 
+            },
+            { 
+                id: 3, 
+                text: "O cenário é alarmante. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
+            },
+            { 
+                id: 4, 
+                text: "Fundamentação Teórica: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
+            },
+        ];
+
+        let currentIndex = 0;
+
+        function atualizaUI() {
+            const current = slides[currentIndex];
+            document.getElementById('script-text').innerText = current.text;
+            document.getElementById('slide-count').innerText = `Slide ${currentIndex + 1} de ${slides.length}`;
+        }
+
+        function proximo() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                atualizaUI();
+            }
+        }
+
+        function anterior() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                atualizaUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") proximo();
+            if (e.key === "ArrowLeft") anterior();
+        });
+
+        atualizaUI();
+    </script>
+</body>
+</html>

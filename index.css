@@ -1,0 +1,35 @@
+body {
+            background-color: #1a1a1a00;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+        }
+        #slide-count {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        #script-text {
+            font-size: 18px;
+            line-height: 1.5;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button:active { background-color: #45a049; }
